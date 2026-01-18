@@ -1,5 +1,30 @@
 ---
-const { class: className = "h-8 w-auto" } = Astro.props;
+const {
+  class: className = "h-8 w-auto",
+  badge = true, // adds subtle backing so the mark doesn't disappear on dark headers
+} = Astro.props;
+
 import logo from "../assets/caprock-logo.png";
 ---
-<img src={logo.src} alt="Caprock Technology Group" class={className} loading="lazy" decoding="async" />
+
+{badge ? (
+  <span class="inline-flex items-center justify-center rounded-xl bg-white/5 ring-1 ring-white/10 px-2 py-1">
+    <img
+      src={logo.src}
+      alt="Caprock Technology Group"
+      class={className}
+      style="filter: drop-shadow(0 2px 12px rgba(0,0,0,.55)) brightness(1.12) saturate(1.05);"
+      loading="lazy"
+      decoding="async"
+    />
+  </span>
+) : (
+  <img
+    src={logo.src}
+    alt="Caprock Technology Group"
+    class={className}
+    style="filter: drop-shadow(0 2px 12px rgba(0,0,0,.55)) brightness(1.12) saturate(1.05);"
+    loading="lazy"
+    decoding="async"
+  />
+)}

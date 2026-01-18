@@ -17,15 +17,27 @@ const partners = [
   { name: "SentinelOne", src: sentinelone.src },
 ];
 ---
-<div class="card p-5">
-  <div class="kicker">Partners & tools</div>
-  <div class="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-7 items-center">
-    {partners.map(p => (
-      <div class="flex items-center justify-center rounded-xl border border-white/10 bg-white/5 p-3">
-        <img src={p.src} alt={p.name} class="h-7 w-auto opacity-90" loading="lazy" decoding="async" />
+
+<div class="rounded-3xl border border-white/10 bg-ink/60 p-6">
+  <div class="flex items-center justify-between gap-4">
+    <h3 class="text-xs font-semibold tracking-widest text-fog/70">PARTNERS &amp; TOOLS</h3>
+  </div>
+
+  <div class="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-7 items-stretch">
+    {partners.map((p) => (
+      <div class="flex h-14 items-center justify-center rounded-xl border border-white/10 bg-white/5 px-4">
+        <img
+          src={p.src}
+          alt={p.name}
+          class="h-8 w-auto max-w-[140px] object-contain opacity-100"
+          style="filter: drop-shadow(0 2px 10px rgba(0,0,0,.45));"
+          loading="lazy"
+          decoding="async"
+        />
       </div>
     ))}
   </div>
+
   <p class="mt-4 text-xs text-fog/60">
     Logos are used only to indicate tools and vendor relationships Caprock works with. No client logos are shown.
   </p>
