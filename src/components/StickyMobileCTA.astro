@@ -1,0 +1,12 @@
+---
+import data from "../content.json";
+const phoneDigits = data.phoneDigits;
+---
+<div class="fixed inset-x-0 bottom-0 z-50 md:hidden">
+  <div class="mx-auto max-w-container px-4 pb-4">
+    <div class="rounded-2xl border border-white/10 bg-ink/90 backdrop-blur p-3 shadow-soft flex items-center justify-between gap-3">
+      <a class="btn btn-primary flex-1" href="/contact">Request a Check</a>
+      <a class="btn btn-ghost" href={`tel:${phoneDigits}`}>Call</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PricingMSP from "../components/PricingMSP.astro";
+import LeadForm from "../components/LeadForm.astro";
+import FAQ from "../components/FAQ.astro";
+
+const title = "MSP Pricing | Caprock Technology Group";
+const description = "Transparent Managed IT membership pricing. Watchtower, Partner, and VIP tiers with required onboarding setup fee.";
+const canonical = "https://caprocktech.com/msp-pricing";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why is there an onboarding setup fee?",
+      "acceptedAnswer": { "@type": "Answer", "text": "MSP onboarding includes agent deployment, baseline configuration, policy alignment, and documenting the environment. The setup fee is required and equals 100% of Month 1 revenue (1.0× MRR)." }
+    },
+    {
+      "@type": "Question",
+      "name": "What’s included vs not included?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Inclusions depend on the tier you select. Work outside of scope (projects, major migrations, or nonstandard remediation) may be quoted separately." }
+    }
+  ]
+};
+---
+<BaseLayout title={title} description={description} canonical={canonical} schema={schema}>
+  <section class="container pt-12">
+    <div class="kicker">Pricing</div>
+    <h1 class="h1 mt-3">MSP memberships</h1>
+    <p class="p mt-4 max-w-3xl">
+      Membership pricing is per user per month. A required onboarding setup fee equals 100% of Month 1 revenue (1.0× MRR).
+      Final scope is confirmed during onboarding.
+    </p>
+    <div class="mt-6 flex gap-3">
+      <a href="/contact" class="btn btn-primary">Request a quote</a>
+      <a href="/managed-it" class="btn btn-ghost">What’s included</a>
+    </div>
+  </section>
+
+  <section class="container mt-12">
+    <PricingMSP />
+  </section>
+
+  <section class="container mt-14">
+    <div class="grid gap-6 lg:grid-cols-2 lg:items-start">
+      <FAQ items={[
+        { q: "Why is there an onboarding setup fee?", a: "MSP onboarding includes agent deployment, baseline configuration, policy alignment, and documenting the environment. The setup fee is required and equals 100% of Month 1 revenue (1.0× MRR)." },
+        { q: "What’s included vs not included?", a: "Inclusions depend on the tier you select. Work outside of scope (projects, major migrations, or nonstandard remediation) may be quoted separately." },
+        { q: "Do you support our existing vendors?", a: "VIP includes vendor management. Other tiers can include coordination as part of onboarding or scoped projects." },
+        { q: "What’s the primary offer?", a: "Start with the 10‑Minute Readiness Check so we can confirm your environment and recommend the right tier." }
+      ]} />
+      <LeadForm title="Confirm pricing for your user count" description="Send your user count and a quick summary. We’ll confirm the right tier and onboarding requirements." interestDefault="MSP Pricing" />
+    </div>
+  </section>
+</BaseLayout>

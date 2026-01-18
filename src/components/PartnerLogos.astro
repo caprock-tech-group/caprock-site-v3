@@ -1,0 +1,32 @@
+---
+import ms from "../assets/partners/microsoft-partner.png";
+import dell from "../assets/partners/dell-partner.png";
+import lorex from "../assets/partners/lorex.png";
+import reolink from "../assets/partners/reolink.png";
+import montavue from "../assets/partners/montavue.png";
+import ninjaone from "../assets/partners/ninjaone.png";
+import sentinelone from "../assets/partners/sentinelone.png";
+
+const partners = [
+  { name: "Microsoft", src: ms.src },
+  { name: "Dell Technologies", src: dell.src },
+  { name: "Lorex", src: lorex.src },
+  { name: "Reolink", src: reolink.src },
+  { name: "Montavue", src: montavue.src },
+  { name: "NinjaOne", src: ninjaone.src },
+  { name: "SentinelOne", src: sentinelone.src },
+];
+---
+<div class="card p-5">
+  <div class="kicker">Partners & tools</div>
+  <div class="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-7 items-center">
+    {partners.map(p => (
+      <div class="flex items-center justify-center rounded-xl border border-white/10 bg-white/5 p-3">
+        <img src={p.src} alt={p.name} class="h-7 w-auto opacity-90" loading="lazy" decoding="async" />
+      </div>
+    ))}
+  </div>
+  <p class="mt-4 text-xs text-fog/60">
+    Logos are used only to indicate tools and vendor relationships Caprock works with. No client logos are shown.
+  </p>
+</div>

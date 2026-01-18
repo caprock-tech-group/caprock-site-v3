@@ -1,0 +1,65 @@
+---
+const tiers = [
+  {
+    name: "Watchtower",
+    price: "$75",
+    unit: "/ user / month",
+    desc: "Core security + management stack for disciplined, predictable IT.",
+    bullets: ["SentinelOne (EDR)","NinjaOne (RMM + auto‑patching)","NinjaOne Backup","Monthly reporting (high level)"],
+    badge: "Baseline protection",
+  },
+  {
+    name: "Partner",
+    price: "$125",
+    unit: "/ user / month",
+    desc: "Everything in Watchtower plus day‑to‑day remote support for your team.",
+    bullets: ["All Watchtower inclusions","Unlimited remote helpdesk","User onboarding/offboarding support","Priority escalation path"],
+    badge: "Most popular",
+  },
+  {
+    name: "VIP",
+    price: "$175",
+    unit: "/ user / month",
+    desc: "White‑glove coverage with on‑site support and vendor coordination.",
+    bullets: ["All Partner inclusions","Unlimited on‑site support","Vendor management","Best fit for growing teams"],
+    badge: "Full coverage",
+  },
+];
+---
+<div class="grid gap-6 lg:grid-cols-3">
+  {tiers.map(t => (
+    <div class="card p-6">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <div class="kicker">MSP Membership</div>
+          <h3 class="mt-2 text-xl font-semibold tracking-tight">{t.name}</h3>
+        </div>
+        <span class="badge">{t.badge}</span>
+      </div>
+
+      <div class="mt-4">
+        <div class="text-3xl font-semibold tracking-tight">{t.price}<span class="text-sm text-fog/70"> {t.unit}</span></div>
+        <p class="mt-2 text-sm text-fog/75">{t.desc}</p>
+      </div>
+
+      <ul class="mt-5 grid gap-2 text-sm text-fog/80">
+        {t.bullets.map(b => (
+          <li class="flex gap-2">
+            <span class="mt-1 h-2 w-2 rounded-full bg-white/70"></span>
+            <span>{b}</span>
+          </li>
+        ))}
+      </ul>
+
+      <div class="mt-6 rounded-2xl border border-white/10 bg-white/5 p-4">
+        <div class="text-sm font-semibold">Onboarding setup fee (required)</div>
+        <div class="mt-1 text-sm text-fog/75">Setup fee equals <span class="font-semibold">100% of Month 1 revenue (1.0× MRR)</span>.</div>
+      </div>
+
+      <div class="mt-6">
+        <a href="/contact" class="btn btn-primary w-full">Request pricing confirmation</a>
+        <p class="mt-2 text-xs text-fog/60">Final scope depends on environment and onboarding requirements.</p>
+      </div>
+    </div>
+  ))}
+</div>

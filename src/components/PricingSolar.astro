@@ -1,0 +1,78 @@
+---
+const plans = [
+  {
+    name: "Pipeline",
+    price: "$350",
+    unit: "/ month",
+    desc: "Connectivity only.",
+    bullets: ["LTE connectivity / remote access","Basic monitoring","Ideal when you have your own response process"],
+  },
+  {
+    name: "Sentry",
+    price: "$550",
+    unit: "/ month",
+    desc: "Health + uptime monitoring. Unlocks the 3‑year commercial warranty.",
+    bullets: ["Plan health checks","Uptime monitoring","Warranty eligibility (with rules below)"],
+    badge: "Recommended",
+  },
+  {
+    name: "Detective",
+    price: "$850",
+    unit: "/ month",
+    desc: "Evidence concierge and police handoff support.",
+    bullets: ["Event export support","Evidence packaging / chain‑of‑custody support","Escalation for law enforcement handoff"],
+  },
+];
+---
+<div class="grid gap-6 lg:grid-cols-3">
+  {plans.map(p => (
+    <div class="card p-6">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <div class="kicker">Service plan</div>
+          <h3 class="mt-2 text-xl font-semibold tracking-tight">{p.name}</h3>
+        </div>
+        {p.badge ? <span class="badge">{p.badge}</span> : null}
+      </div>
+
+      <div class="mt-4">
+        <div class="text-3xl font-semibold tracking-tight">{p.price}<span class="text-sm text-fog/70"> {p.unit}</span></div>
+        <p class="mt-2 text-sm text-fog/75">{p.desc}</p>
+      </div>
+
+      <ul class="mt-5 grid gap-2 text-sm text-fog/80">
+        {p.bullets.map(b => (
+          <li class="flex gap-2">
+            <span class="mt-1 h-2 w-2 rounded-full bg-white/70"></span>
+            <span>{b}</span>
+          </li>
+        ))}
+      </ul>
+
+      <div class="mt-6">
+        <a href="/contact" class="btn btn-primary w-full">Schedule a walkthrough</a>
+      </div>
+    </div>
+  ))}
+</div>
+
+<div class="mt-6 card p-6">
+  <div class="grid gap-4 md:grid-cols-2">
+    <div>
+      <div class="kicker">Hardware</div>
+      <h4 class="mt-2 text-xl font-semibold tracking-tight">Montavue Solar Sentry</h4>
+      <p class="mt-2 text-sm text-fog/75">
+        Unit price: <span class="font-semibold">$44,999.95</span>.
+        Includes a 26ft retractable mast, 3×460W solar panels, and 4K AI cameras.
+      </p>
+    </div>
+    <div>
+      <div class="kicker">Standard setup</div>
+      <h4 class="mt-2 text-xl font-semibold tracking-tight">Strategic setup fee</h4>
+      <p class="mt-2 text-sm text-fog/75">
+        Standard setup fee: <span class="font-semibold">$500</span>.
+        (Scope may vary by site and deployment requirements.)
+      </p>
+    </div>
+  </div>
+</div>

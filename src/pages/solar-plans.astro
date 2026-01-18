@@ -1,0 +1,77 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PricingSolar from "../components/PricingSolar.astro";
+import LeadForm from "../components/LeadForm.astro";
+import FAQ from "../components/FAQ.astro";
+
+const title = "Solar Plans + Warranty Rules | Caprock Technology Group";
+const description = "Solar Sentry plans, pricing, travel rules, and the warranty rule (authorized relocation/recalibration only).";
+const canonical = "https://caprocktech.com/solar-plans";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What voids the 3‑year commercial warranty?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The 3‑year commercial warranty is VOID if any unit is relocated or recalibrated by non‑Caprock staff. Only an Authorized Caprock Technician can relocate/recalibrate the unit." }
+    },
+    {
+      "@type": "Question",
+      "name": "How does travel work in the Panhandle?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Zone A (Amarillo/Canyon) has $0 travel. Zone B is billed at $1.50 per mile (round trip)." }
+    }
+  ]
+};
+---
+<BaseLayout title={title} description={description} canonical={canonical} schema={schema}>
+  <section class="container pt-12">
+    <div class="kicker">Plans + rules</div>
+    <h1 class="h1 mt-3">Solar Sentry plans</h1>
+    <p class="p mt-4 max-w-3xl">
+      Select the plan that matches your operating requirements. If you want the 3‑year commercial warranty, choose
+      the Sentry plan and follow the relocation/recalibration rule.
+    </p>
+
+    <div class="mt-6 flex flex-col sm:flex-row gap-3">
+      <a href="/contact" class="btn btn-primary">Schedule a walkthrough</a>
+      <a href="/solar-sentry" class="btn btn-ghost">Solar Sentry overview</a>
+    </div>
+  </section>
+
+  <section class="container mt-12">
+    <PricingSolar />
+  </section>
+
+  <section class="container mt-14">
+    <div class="grid gap-6 lg:grid-cols-2">
+      <div class="card p-6">
+        <div class="kicker">Travel</div>
+        <h2 class="h2 mt-3">Panhandle travel zones</h2>
+        <p class="p mt-3">Zone A (Amarillo/Canyon) has $0 travel. Zone B is billed at $1.50 per mile round trip.</p>
+      </div>
+
+      <div class="card p-6">
+        <div class="kicker">Warranty</div>
+        <h2 class="h2 mt-3">Relocation rule</h2>
+        <p class="p mt-3">
+          The 3‑year commercial warranty is VOID if the unit is relocated or recalibrated by non‑Caprock staff.
+          Moves must be performed by an Authorized Caprock Technician.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container mt-14">
+    <div class="grid gap-6 lg:grid-cols-2 lg:items-start">
+      <FAQ items={[
+        { q: "What voids the 3‑year commercial warranty?", a: "The 3‑year commercial warranty is VOID if any unit is relocated or recalibrated by non‑Caprock staff. Only an Authorized Caprock Technician can relocate/recalibrate the unit." },
+        { q: "How does travel work in the Panhandle?", a: "Zone A (Amarillo/Canyon) has $0 travel. Zone B is billed at $1.50 per mile (round trip)." },
+        { q: "Can we move the unit ourselves?", a: "You can request a move, but relocation/recalibration must be performed by an Authorized Caprock Technician to keep warranty eligibility." },
+        { q: "What’s the primary offer?", a: "Schedule a Site Security Walkthrough to confirm placement, coverage, and power/connectivity considerations." }
+      ]} />
+      <LeadForm title="Schedule your Site Security Walkthrough" description="We’ll confirm placement, plan selection, and deployment requirements." interestDefault="Solar Plans" />
+    </div>
+  </section>
+</BaseLayout>

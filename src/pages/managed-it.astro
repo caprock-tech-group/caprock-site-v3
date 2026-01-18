@@ -1,0 +1,81 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PricingMSP from "../components/PricingMSP.astro";
+import LeadForm from "../components/LeadForm.astro";
+import FAQ from "../components/FAQ.astro";
+
+const title = "Managed IT Memberships | Caprock Technology Group";
+const description = "Managed IT memberships built on NinjaOne + SentinelOne. Clear tiers, disciplined onboarding, and a fast readiness check.";
+const canonical = "https://caprocktech.com/managed-it";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Managed IT Memberships",
+  "provider": {
+    "@type": "Organization",
+    "name": "Caprock Technology Group",
+    "telephone": "806-316-5070",
+    "url": "https://caprocktech.com"
+  },
+  "areaServed": ["Texas Panhandle", "West Texas", "Amarillo, TX", "Canyon, TX"],
+  "serviceType": "Managed IT / MSP"
+};
+---
+<BaseLayout title={title} description={description} canonical={canonical} schema={schema}>
+  <section class="container pt-12">
+    <div class="kicker">Digital Defense</div>
+    <h1 class="h1 mt-3">Managed IT that stays predictable.</h1>
+    <p class="p mt-4 max-w-3xl">
+      We standardize your endpoint security and management using NinjaOne and SentinelOne — then match you to a membership
+      tier based on your support and on‑site needs.
+    </p>
+
+    <div class="mt-6 flex flex-col sm:flex-row gap-3">
+      <a href="/contact" class="btn btn-primary">Request the 10‑Minute Readiness Check</a>
+      <a href="tel:8063165070" class="btn btn-ghost">Call 806-316-5070</a>
+    </div>
+  </section>
+
+  <section class="container mt-14">
+    <div class="grid gap-6 lg:grid-cols-3">
+      <div class="card p-6">
+        <div class="kicker">Step 1</div>
+        <h2 class="text-lg font-semibold mt-2">Readiness check</h2>
+        <p class="mt-2 text-sm text-fog/75">Confirm user count, environment basics, and any critical risks.</p>
+      </div>
+      <div class="card p-6">
+        <div class="kicker">Step 2</div>
+        <h2 class="text-lg font-semibold mt-2">Onboarding & baseline</h2>
+        <p class="mt-2 text-sm text-fog/75">Deploy tooling, align policies, document the environment, and stabilize.</p>
+      </div>
+      <div class="card p-6">
+        <div class="kicker">Step 3</div>
+        <h2 class="text-lg font-semibold mt-2">Operate</h2>
+        <p class="mt-2 text-sm text-fog/75">Ongoing patching, endpoint protection, backup, and support based on tier.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container mt-14">
+    <h2 class="h2">Membership tiers</h2>
+    <p class="p mt-3 max-w-3xl">
+      Published pricing below. Final scope is confirmed during the readiness check and onboarding review.
+    </p>
+    <div class="mt-8">
+      <PricingMSP />
+    </div>
+  </section>
+
+  <section class="container mt-14">
+    <div class="grid gap-6 lg:grid-cols-2 lg:items-start">
+      <LeadForm title="Request the 10‑Minute Readiness Check" description="We’ll confirm your user count, current tools, and priorities — then recommend the right tier." interestDefault="Managed IT" />
+      <FAQ items={[
+        { q: "Why is there an onboarding setup fee?", a: "MSP onboarding includes agent deployment, baseline configuration, policy alignment, and documenting the environment. The setup fee is required and equals 100% of Month 1 revenue (1.0× MRR)." },
+        { q: "What’s included vs not included?", a: "Inclusions depend on the tier you select. Work outside of scope (projects, major migrations, or nonstandard remediation) may be quoted separately." },
+        { q: "Do you support our existing vendors?", a: "VIP includes vendor management. Other tiers can include coordination as part of onboarding or scoped projects." },
+        { q: "What’s the primary offer?", a: "Start with the 10‑Minute Readiness Check so we can confirm your environment and recommend the right tier." }
+      ]} />
+    </div>
+  </section>
+</BaseLayout>

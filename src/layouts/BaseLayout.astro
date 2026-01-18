@@ -1,0 +1,116 @@
+---
+import "../styles/global.css";
+import Logo from "../components/Logo.astro";
+import Nav from "../components/Nav.astro";
+import StickyMobileCTA from "../components/StickyMobileCTA.astro";
+import data from "../content.json";
+
+const {
+  title = "Caprock Technology Group",
+  description = "Managed IT and Solar Surveillance Security for the Texas Panhandle and West Texas.",
+  canonical = "https://caprocktech.com",
+  ogImage = "/og.png",
+  schema = null,
+} = Astro.props;
+
+const ga4 = import.meta.env.PUBLIC_GA4_ID;
+const phone = data.phone;
+const phoneDigits = data.phoneDigits;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="canonical" href={canonical} />
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>{title}</title>
+
+    {ga4 ? (
+      <>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${ga4}`}></script>
+        <script is:inline>
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${ga4}', { anonymize_ip: true });
+          `}
+        </script>
+      </>
+    ) : null}
+
+    {schema ? (
+      <script type="application/ld+json" set:html={JSON.stringify(schema)}></script>
+    ) : null}
+  </head>
+  <body>
+    <header class="sticky top-0 z-40 border-b border-white/10 bg-ink/80 backdrop-blur">
+      <div class="container py-4 flex items-center justify-between gap-4">
+        <a href="/" class="flex items-center gap-3">
+          <Logo class="h-8 w-auto" />
+          <div class="hidden sm:block">
+            <div class="text-sm font-semibold tracking-tight">Caprock Technology Group</div>
+            <div class="text-xs text-fog/60">Managed IT + Solar Surveillance</div>
+          </div>
+        </a>
+        <Nav />
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="border-t border-white/10 mt-16">
+      <div class="container py-10">
+        <div class="grid gap-8 md:grid-cols-3">
+          <div>
+            <div class="text-sm font-semibold">Caprock Technology Group</div>
+            <p class="mt-2 text-sm text-fog/70">
+              Managed IT and Solar Surveillance Security for the Texas Panhandle and West Texas.
+            </p>
+          </div>
+
+          <div>
+            <div class="text-sm font-semibold">Contact</div>
+            <p class="mt-2 text-sm text-fog/70">
+              Phone: <a class="underline decoration-white/30 hover:decoration-white" href={`tel:${phoneDigits}`}>{phone}</a><br />
+              Domain: <span class="text-fog/80">caprocktech.com</span>
+            </p>
+            <p class="mt-3 text-xs text-fog/60">
+              Note: No warranties, SLAs, response times, or performance metrics are implied on this website unless explicitly provided in a signed agreement.
+            </p>
+          </div>
+
+          <div>
+            <div class="text-sm font-semibold">Quick links</div>
+            <div class="mt-2 grid gap-2 text-sm text-fog/70">
+              <a href="/managed-it" class="hover:text-white">Managed IT</a>
+              <a href="/msp-pricing" class="hover:text-white">MSP Pricing</a>
+              <a href="/solar-sentry" class="hover:text-white">Solar Sentry</a>
+              <a href="/contact" class="hover:text-white">Book</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-10 flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-xs text-fog/60">
+          <div>© {new Date().getFullYear()} Caprock Technology Group. All rights reserved.</div>
+          <div class="flex gap-4">
+            <a href="/privacy" class="hover:text-white">Privacy</a>
+            <a href="/terms" class="hover:text-white">Terms</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <StickyMobileCTA />
+  </body>
+</html>

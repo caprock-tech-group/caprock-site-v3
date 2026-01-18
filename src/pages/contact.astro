@@ -1,0 +1,55 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import LeadForm from "../components/LeadForm.astro";
+import data from "../content.json";
+
+const title = "Contact | Caprock Technology Group";
+const description = "Book a readiness check (MSP) or schedule a site security walkthrough (Solar).";
+const canonical = "https://caprocktech.com/contact";
+const phone = data.phone;
+const phoneDigits = data.phoneDigits;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contact Caprock Technology Group",
+  "url": "https://caprocktech.com/contact",
+  "telephone": "806-316-5070"
+};
+---
+<BaseLayout title={title} description={description} canonical={canonical} schema={schema}>
+  <section class="container pt-12">
+    <div class="kicker">Book</div>
+    <h1 class="h1 mt-3">Talk to Caprock</h1>
+    <p class="p mt-4 max-w-3xl">
+      Choose your starting point: <span class="font-semibold">10‑Minute Readiness Check</span> (Managed IT) or
+      <span class="font-semibold">Site Security Walkthrough</span> (Solar Sentry).
+    </p>
+
+    <div class="mt-6 flex flex-col sm:flex-row gap-3">
+      <a href={`tel:${phoneDigits}`} class="btn btn-primary">Call {phone}</a>
+      <a href="/" class="btn btn-ghost">Back to home</a>
+    </div>
+  </section>
+
+  <section class="container mt-14">
+    <div class="grid gap-6 lg:grid-cols-2 lg:items-start">
+      <LeadForm title="Request a callback" description="Short form. We’ll route you to the right offer and follow up." interestDefault="Managed IT" />
+
+      <div class="card p-6">
+        <div class="kicker">What happens next</div>
+        <h2 class="h2 mt-3">A clear plan, fast.</h2>
+        <ul class="mt-4 list-disc pl-6 space-y-2 text-fog/80">
+          <li>We review your form submission.</li>
+          <li>We confirm whether you need MSP readiness or a Solar walkthrough.</li>
+          <li>We propose next steps (and pricing confirmation) based on scope.</li>
+        </ul>
+
+        <div class="mt-6 rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-fog/75">
+          <div class="font-semibold text-fog">Service area notes</div>
+          <p class="mt-2">Texas Panhandle / West Texas. Zone A (Amarillo/Canyon) $0 travel; Zone B $1.50/mile round trip.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

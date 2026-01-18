@@ -1,0 +1,81 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PricingSolar from "../components/PricingSolar.astro";
+import LeadForm from "../components/LeadForm.astro";
+import FAQ from "../components/FAQ.astro";
+
+const title = "Solar Sentry | Caprock Technology Group";
+const description = "Solar Surveillance assets for remote sites: Montavue Solar Sentry hardware plus service plans for monitoring and evidence support.";
+const canonical = "https://caprocktech.com/solar-sentry";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Solar Surveillance Assets",
+  "provider": {
+    "@type": "Organization",
+    "name": "Caprock Technology Group",
+    "telephone": "806-316-5070",
+    "url": "https://caprocktech.com"
+  },
+  "areaServed": ["Texas Panhandle", "West Texas", "Amarillo, TX", "Canyon, TX"],
+  "serviceType": "Solar Surveillance / Mobile Security"
+};
+---
+<BaseLayout title={title} description={description} canonical={canonical} schema={schema}>
+  <section class="container pt-12">
+    <div class="kicker">Physical Defense</div>
+    <h1 class="h1 mt-3">Solar Sentry for remote site security.</h1>
+    <p class="p mt-4 max-w-3xl">
+      Deploy deterrence and evidence capture on job sites, lots, and remote areas with a solar-powered surveillance unit
+      and a service plan matched to your operating needs.
+    </p>
+
+    <div class="mt-6 flex flex-col sm:flex-row gap-3">
+      <a href="/contact" class="btn btn-primary">Schedule a Site Security Walkthrough</a>
+      <a href="/solar-plans" class="btn btn-ghost">Plans + warranty rules</a>
+    </div>
+  </section>
+
+  <section class="container mt-14">
+    <div class="grid gap-6 lg:grid-cols-3">
+      <div class="card p-6">
+        <div class="kicker">Step 1</div>
+        <h2 class="text-lg font-semibold mt-2">Site walkthrough</h2>
+        <p class="mt-2 text-sm text-fog/75">Confirm coverage, line of sight, and placement constraints.</p>
+      </div>
+      <div class="card p-6">
+        <div class="kicker">Step 2</div>
+        <h2 class="text-lg font-semibold mt-2">Deployment</h2>
+        <p class="mt-2 text-sm text-fog/75">Strategic setup and configuration. Plan selection based on your response process.</p>
+      </div>
+      <div class="card p-6">
+        <div class="kicker">Step 3</div>
+        <h2 class="text-lg font-semibold mt-2">Operate</h2>
+        <p class="mt-2 text-sm text-fog/75">Ongoing connectivity, monitoring health, and optional evidence concierge support.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container mt-14">
+    <h2 class="h2">Plans + hardware</h2>
+    <p class="p mt-3 max-w-3xl">
+      Choose the plan that matches how you respond to incidents — from connectivity-only to evidence concierge support.
+    </p>
+    <div class="mt-8">
+      <PricingSolar />
+    </div>
+  </section>
+
+  <section class="container mt-14">
+    <div class="grid gap-6 lg:grid-cols-2 lg:items-start">
+      <LeadForm title="Schedule a Site Security Walkthrough" description="We’ll confirm coverage and deployment requirements and recommend the right plan." interestDefault="Solar Sentry" />
+      <FAQ items={[
+        { q: "What voids the 3‑year commercial warranty?", a: "The 3‑year commercial warranty is VOID if any unit is relocated or recalibrated by non‑Caprock staff. Only an Authorized Caprock Technician can relocate/recalibrate the unit." },
+        { q: "How does travel work in the Panhandle?", a: "Zone A (Amarillo/Canyon) has $0 travel. Zone B is billed at $1.50 per mile (round trip)." },
+        { q: "Can we move the unit ourselves?", a: "You can request a move, but relocation/recalibration must be performed by an Authorized Caprock Technician to keep warranty eligibility." },
+        { q: "What’s the primary offer?", a: "Schedule a Site Security Walkthrough to confirm placement, coverage, and power/connectivity considerations." }
+      ]} />
+    </div>
+  </section>
+</BaseLayout>

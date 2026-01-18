@@ -1,0 +1,23 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const title = "Privacy Policy | Caprock Technology Group";
+const description = "How Caprock Technology Group handles basic contact form submissions and communications.";
+---
+<BaseLayout title={title} description={description} canonical="https://caprocktech.com/privacy">
+  <section class="container pt-12">
+    <div class="kicker">Legal</div>
+    <h1 class="h1 mt-3">Privacy Policy</h1>
+    <div class="mt-6 max-w-3xl text-fog/80 space-y-4">
+      <p>
+        This website collects information you voluntarily submit through our forms (such as name, company, email, phone, and notes)
+        so we can respond to your request.
+      </p>
+      <ul class="list-disc pl-6 space-y-2 text-fog/80">
+        <li>We do not sell your information.</li>
+        <li>We use submitted information only for communicating about your inquiry and providing requested services.</li>
+        <li>If you want your information removed, contact us and we’ll take appropriate action.</li>
+      </ul>
+      <p>This policy may be updated as processes evolve.</p>
+    </div>
+  </section>
+</BaseLayout>

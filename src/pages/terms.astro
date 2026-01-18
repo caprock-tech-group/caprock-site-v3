@@ -1,0 +1,21 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const title = "Terms | Caprock Technology Group";
+const description = "General website terms and disclaimers.";
+---
+<BaseLayout title={title} description={description} canonical="https://caprocktech.com/terms">
+  <section class="container pt-12">
+    <div class="kicker">Legal</div>
+    <h1 class="h1 mt-3">Terms</h1>
+    <div class="mt-6 max-w-3xl text-fog/80 space-y-4">
+      <p>
+        This website is for general informational purposes only. Pricing and inclusions shown are published pricing
+        and may require confirmation based on environment, scope, and deployment requirements.
+      </p>
+      <p>
+        No warranty, service level, response time, or performance metric is implied by website content unless explicitly provided
+        in a signed agreement.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

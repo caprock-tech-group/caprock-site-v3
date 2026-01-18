@@ -1,0 +1,5 @@
+---
+const { class: className = "h-8 w-auto" } = Astro.props;
+import logo from "../assets/caprock-logo.png";
+---
+<img src={logo.src} alt="Caprock Technology Group" class={className} loading="lazy" decoding="async" />

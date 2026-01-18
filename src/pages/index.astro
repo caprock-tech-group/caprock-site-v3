@@ -1,0 +1,141 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PartnerLogos from "../components/PartnerLogos.astro";
+import LeadForm from "../components/LeadForm.astro";
+import FAQ from "../components/FAQ.astro";
+
+const title = "Caprock Technology Group | Managed IT + Solar Surveillance Security";
+const description = "Enterprise-grade Managed IT memberships and Solar Surveillance assets for the Texas Panhandle and West Texas. Book a readiness check or site walkthrough.";
+const canonical = "https://caprocktech.com/";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "Caprock Technology Group",
+      "url": "https://caprocktech.com",
+      "telephone": "806-316-5070"
+    },
+    {
+      "@type": "LocalBusiness",
+      "name": "Caprock Technology Group",
+      "url": "https://caprocktech.com",
+      "telephone": "806-316-5070",
+      "areaServed": ["Amarillo, TX", "Canyon, TX", "Texas Panhandle", "West Texas"],
+      "makesOffer": [
+        { "@type": "Offer", "name": "Managed IT memberships", "url": "https://caprocktech.com/managed-it" },
+        { "@type": "Offer", "name": "Solar Surveillance assets", "url": "https://caprocktech.com/solar-sentry" }
+      ]
+    }
+  ]
+};
+---
+<BaseLayout title={title} description={description} canonical={canonical} schema={schema}>
+  <section class="container pt-14">
+    <div class="grid gap-10 lg:grid-cols-2 lg:items-center">
+      <div>
+        <div class="kicker">Digital + Physical Defense</div>
+        <h1 class="h1 mt-3">Security you can operate — without chaos.</h1>
+        <p class="p mt-4 max-w-xl">
+          Caprock delivers two clear paths: Managed IT memberships for disciplined endpoint security,
+          and Solar Surveillance assets for remote job sites and high‑risk areas.
+        </p>
+
+        <div class="mt-6 flex flex-col sm:flex-row gap-3">
+          <a href="/managed-it" class="btn btn-primary">Request the 10‑Minute Readiness Check</a>
+          <a href="/solar-sentry" class="btn btn-ghost">Schedule a Site Security Walkthrough</a>
+        </div>
+
+        <div class="mt-6 grid gap-3 sm:grid-cols-3">
+          <div class="card p-4">
+            <div class="text-sm font-semibold">MSP memberships</div>
+            <div class="mt-1 text-sm text-fog/70">Predictable pricing. Clear inclusions.</div>
+          </div>
+          <div class="card p-4">
+            <div class="text-sm font-semibold">Solar Sentry</div>
+            <div class="mt-1 text-sm text-fog/70">Deterrence + evidence on remote sites.</div>
+          </div>
+          <div class="card p-4">
+            <div class="text-sm font-semibold">Panhandle travel rules</div>
+            <div class="mt-1 text-sm text-fog/70">Zone A $0 / Zone B $1.50/mi (RT).</div>
+          </div>
+        </div>
+
+        <div class="mt-8 card p-5">
+          <div class="text-sm font-semibold">Truth-first trust block</div>
+          <p class="mt-2 text-sm text-fog/70">
+            This site does not publish unverified claims (no fabricated metrics, SLAs, or testimonials).
+            If you want proof assets added (reviews, case studies, certifications), insert only verified sources.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid gap-6">
+        <PartnerLogos />
+        <LeadForm title="Get routed fast" description="Submit once. We’ll route you to the MSP readiness check or Solar walkthrough." />
+      </div>
+    </div>
+  </section>
+
+  <section class="container mt-16">
+    <div class="grid gap-6 lg:grid-cols-2">
+      <div class="card p-6">
+        <div class="kicker">Managed IT</div>
+        <h2 class="h2 mt-3">Stop surprises. Standardize security.</h2>
+        <p class="p mt-3">
+          A clean, monitored baseline with NinjaOne + SentinelOne, plus membership tiers that scale with your support needs.
+        </p>
+        <div class="mt-6 flex gap-3">
+          <a href="/managed-it" class="btn btn-primary">Explore Managed IT</a>
+          <a href="/msp-pricing" class="btn btn-ghost">View pricing</a>
+        </div>
+      </div>
+
+      <div class="card p-6">
+        <div class="kicker">Solar Surveillance</div>
+        <h2 class="h2 mt-3">Autonomous site security — wherever you need it.</h2>
+        <p class="p mt-3">
+          The Montavue Solar Sentry combines solar power, a retractable mast, and 4K AI cameras for remote deterrence and evidence capture.
+        </p>
+        <div class="mt-6 flex gap-3">
+          <a href="/solar-sentry" class="btn btn-primary">Explore Solar Sentry</a>
+          <a href="/solar-plans" class="btn btn-ghost">Plans + warranty rules</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container mt-16">
+    <FAQ items={[
+      { q: "What voids the 3‑year commercial warranty?", a: "The 3‑year commercial warranty is VOID if any unit is relocated or recalibrated by non‑Caprock staff. Only an Authorized Caprock Technician can relocate/recalibrate the unit." },
+      { q: "Why is there an onboarding setup fee?", a: "MSP onboarding includes agent deployment, baseline configuration, policy alignment, and documenting the environment. The setup fee is required and equals 100% of Month 1 revenue (1.0× MRR)." },
+      { q: "How does travel work in the Panhandle?", a: "Zone A (Amarillo/Canyon) has $0 travel. Zone B is billed at $1.50 per mile (round trip)." },
+      { q: "What’s the primary offer?", a: "Start with the 10‑Minute Readiness Check so we can confirm your environment and recommend the right tier." }
+    ]} />
+  </section>
+
+  <section class="container mt-16">
+    <div class="card p-6 md:p-10">
+      <div class="grid gap-6 lg:grid-cols-2 lg:items-center">
+        <div>
+          <div class="kicker">Primary offers</div>
+          <h2 class="h2 mt-3">Choose your starting point</h2>
+          <p class="p mt-3">
+            Pick the offer that matches your priority. If you’re not sure, submit the short form and we’ll route you correctly.
+          </p>
+        </div>
+        <div class="grid gap-3 sm:grid-cols-2">
+          <a href="/contact" class="card p-5 hover:bg-white/10 transition">
+            <div class="text-sm font-semibold">Request the 10‑Minute Readiness Check</div>
+            <div class="mt-1 text-sm text-fog/70">MSP: confirm scope, user count, and best tier.</div>
+          </a>
+          <a href="/contact" class="card p-5 hover:bg-white/10 transition">
+            <div class="text-sm font-semibold">Schedule a Site Security Walkthrough</div>
+            <div class="mt-1 text-sm text-fog/70">Solar: confirm placement, coverage, and power/connectivity considerations.</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

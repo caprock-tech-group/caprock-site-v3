@@ -1,0 +1,33 @@
+---
+const nav = [
+  { href: "/", label: "Home" },
+  { href: "/managed-it", label: "Managed IT" },
+  { href: "/msp-pricing", label: "MSP Pricing" },
+  { href: "/solar-sentry", label: "Solar Sentry" },
+  { href: "/solar-plans", label: "Solar Plans" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
+];
+---
+<nav class="hidden md:flex items-center gap-6">
+  {nav.map(item => (
+    <a href={item.href} class="text-sm text-fog/80 hover:text-white transition">{item.label}</a>
+  ))}
+  <a href="/contact" class="btn btn-primary">Book</a>
+</nav>
+
+<div class="md:hidden">
+  <details class="relative">
+    <summary class="btn btn-ghost list-none cursor-pointer">Menu</summary>
+    <div class="absolute right-0 mt-3 w-64 rounded-2xl border border-white/10 bg-ink/95 p-3 shadow-soft">
+      {nav.map(item => (
+        <a href={item.href} class="block rounded-xl px-3 py-2 text-sm text-fog/80 hover:bg-white/10 hover:text-white transition">
+          {item.label}
+        </a>
+      ))}
+      <div class="mt-2 border-t border-white/10 pt-2">
+        <a href="/contact" class="btn btn-primary w-full">Book</a>
+      </div>
+    </div>
+  </details>
+</div>
